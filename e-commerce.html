@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Platform | John Doe Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom styles */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .screenshot {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .screenshot:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .tech-badge {
+            transition: all 0.2s ease;
+        }
+        
+        .tech-badge:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold gradient-text">Zamin Askari Rizvi</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-gray-900">Home</a>
+                    <a href="index.html#projects" class="text-gray-600 hover:text-gray-900">Projects</a>
+                    <a href="index.html#contact" class="text-gray-600 hover:text-gray-900">Contact</a>
+                    <a href="https://drive.google.com/file/d/1RnBLB9WOhuIvPDchFrKNeR5-RUZmXUIr/view?usp=drive_link" class="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium hover:opacity-90 transition">Resume</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="text-gray-600 hover:text-gray-900">Home</a>
+                <a href="index.html#projects" class="text-gray-600 hover:text-gray-900">Projects</a>
+                <a href="index.html#contact" class="text-gray-600 hover:text-gray-900">Contact</a>
+                <a href="#" class="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium hover:opacity-90 transition text-center">Resume</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Project Header -->
+    <header class="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="text-center mb-12 fade-in">
+            <a href="index.html#projects" class="inline-flex items-center text-blue-500 hover:text-blue-700 mb-4">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Projects
+            </a>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">E-Commerce Platform</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">A full-featured online store with payment integration, inventory management, and analytics dashboard</p>
+        </div>
+        
+        <div class="flex flex-wrap justify-center gap-4 mb-8 fade-in">
+            <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium tech-badge">React</span>
+            <span class="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium tech-badge">Node.js</span>
+            <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium tech-badge">MongoDB</span>
+            <span class="px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-medium tech-badge">Stripe API</span>
+            <span class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium tech-badge">Redux</span>
+            <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium tech-badge">Tailwind CSS</span>
+        </div>
+        
+        <div class="flex justify-center space-x-4 fade-in">
+            <a href="#" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium hover:opacity-90 transition">
+                <i class="fas fa-external-link-alt mr-2"></i> Live Demo
+            </a>
+            <a href="#" class="px-6 py-3 border border-gray-300 rounded-lg font-medium hover:bg-gray-100 transition">
+                <i class="fab fa-github mr-2"></i> View Code
+            </a>
+        </div>
+    </header>
+    
+    <!-- Project Screenshots -->
+    <section class="py-12 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold mb-2">Platform Overview</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Screenshot 1 -->
+                <div class="screenshot fade-in" onclick="openModal('screenshot1')">
+                    <div class="bg-gray-100 rounded-xl overflow-hidden shadow-md">
+                        <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="E-Commerce Homepage" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold">Homepage</h3>
+                            <p class="text-gray-600 text-sm">Featured products and categories</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Screenshot 2 -->
+                <div class="screenshot fade-in delay-1" onclick="openModal('screenshot2')">
+                    <div class="bg-gray-100 rounded-xl overflow-hidden shadow-md">
+                        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Product Page" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold">Product Page</h3>
+                            <p class="text-gray-600 text-sm">Detailed product view with variants</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Screenshot 3 -->
+                <div class="screenshot fade-in delay-2" onclick="openModal('screenshot3')">
+                    <div class="bg-gray-100 rounded-xl overflow-hidden shadow-md">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Shopping Cart" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold">Shopping Cart</h3>
+                            <p class="text-gray-600 text-sm">Cart management interface</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Screenshot 4 -->
+                <div class="screenshot fade-in" onclick="openModal('screenshot4')">
+                    <div class="bg-gray-100 rounded-xl overflow-hidden shadow-md">
+                        <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Checkout Process" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold">Checkout</h3>
+                            <p class="text-gray-600 text-sm">Secure payment process</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Screenshot 5 -->
+                <div class="screenshot fade-in delay-1" onclick="openModal('screenshot5')">
+                    <div class="bg-gray-100 rounded-xl overflow-hidden shadow-md">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Admin Dashboard" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold">Admin Dashboard</h3>
+                            <p class="text-gray-600 text-sm">Sales analytics and management</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Screenshot 6 -->
+                <div class="screenshot fade-in delay-2" onclick="openModal('screenshot6')">
+                    <div class="bg-gray-100 rounded-xl overflow-hidden shadow-md">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a17113a8e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Mobile Responsive" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold">Mobile Experience</h3>
+                            <p class="text-gray-600 text-sm">Fully responsive design</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Project Details -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="md:col-span-2">
+                <div class="mb-12 fade-in">
+                    <h2 class="text-3xl font-bold mb-4">Project Description</h2>
+                    <p class="text-gray-600 mb-6">This e-commerce platform was designed to provide a seamless shopping experience for customers while offering powerful tools for store administrators. The project involved building a complete solution from the ground up, including frontend, backend, database, and third-party integrations.</p>
+                    
+                    <p class="text-gray-600 mb-6">The platform supports multiple product types, variants, inventory management, promotions, and a complete checkout process with multiple payment options. The admin dashboard provides real-time analytics, order management, and product catalog tools.</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3">Key Challenges</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-6">
+                        <li>Implementing a real-time inventory system to prevent overselling</li>
+                        <li>Creating a flexible product variant system to handle different product types</li>
+                        <li>Optimizing the checkout flow to maximize conversion rates</li>
+                        <li>Building a responsive design that works across all device sizes</li>
+                        <li>Ensuring PCI compliance for secure payment processing</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-12 fade-in">
+                    <h2 class="text-3xl font-bold mb-4">Technical Implementation</h2>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-3 flex items-center">
+                            <span class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white mr-3 text-sm">1</span>
+                            Frontend Architecture
+                        </h3>
+                        <p class="text-gray-600 mb-4">The frontend was built with React using a component-based architecture. Key features include:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                            <li>Redux for state management with normalized data structure</li>
+                            <li>React Router for client-side navigation</li>
+                            <li>Custom hooks for API calls and form handling</li>
+                            <li>Context API for global state like cart and user session</li>
+                            <li>Tailwind CSS for utility-first styling with custom design system</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-3 flex items-center">
+                            <span class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white mr-3 text-sm">2</span>
+                            Backend Services
+                        </h3>
+                        <p class="text-gray-600 mb-4">The backend API was built with Node.js and Express, with these key components:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                            <li>RESTful API design with JWT authentication</li>
+                            <li>MongoDB with Mongoose for data modeling</li>
+                            <li>Redis for caching frequent queries and session storage</li>
+                            <li>Stripe API integration for payment processing</li>
+                            <li>Image upload and processing with Cloudinary</li>
+                            <li>Background jobs with Bull for order processing and notifications</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-3 flex items-center">
+                            <span class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white mr-3 text-sm">3</span>
+                            Database Design
+                        </h3>
+                        <p class="text-gray-600 mb-4">The MongoDB schema was carefully designed to support e-commerce operations:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                            <li>Products with variants, options, and inventory tracking</li>
+                            <li>Categories with hierarchical relationships</li>
+                            <li>Customers with order history and saved addresses</li>
+                            <li>Orders with line items, payments, and fulfillment status</li>
+                            <li>Promotions with complex rule engines</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fade-in delay-1">
+                <div class="sticky top-24">
+                    <div class="bg-white p-6 rounded-xl shadow-sm mb-8">
+                        <h3 class="font-semibold text-xl mb-4">Project Details</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-500">Category</h4>
+                                <p class="text-gray-800">E-Commerce Platform</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-500">Timeline</h4>
+                                <p class="text-gray-800">6 months (2022)</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-500">Team</h4>
+                                <p class="text-gray-800">3 Developers, 1 Designer</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-500">My Role</h4>
+                                <p class="text-gray-800">Full Stack Developer</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-500">Client</h4>
+                                <p class="text-gray-800">Retail Startup (Confidential)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="font-semibold text-xl mb-4">Key Features</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-shopping-cart text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Product Catalog</h4>
+                                    <p class="text-gray-600 text-sm">Categories, filters, search, and product pages</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-credit-card text-purple-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Checkout System</h4>
+                                    <p class="text-gray-600 text-sm">Multi-step checkout with payment processing</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-chart-bar text-green-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Admin Dashboard</h4>
+                                    <p class="text-gray-600 text-sm">Sales analytics and inventory management</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-user text-yellow-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Customer Accounts</h4>
+                                    <p class="text-gray-600 text-sm">Order history and saved preferences</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-bell text-red-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Notifications</h4>
+                                    <p class="text-gray-600 text-sm">Email and SMS order updates</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Results and Impact -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold mb-2">Results & Impact</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-xl fade-in">
+                    <div class="text-4xl font-bold text-blue-500 mb-3">+75%</div>
+                    <h3 class="text-xl font-semibold mb-2">Conversion Rate</h3>
+                    <p class="text-gray-600">Improved checkout flow increased conversions compared to previous platform</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl fade-in delay-1">
+                    <div class="text-4xl font-bold text-purple-500 mb-3">2.5s</div>
+                    <h3 class="text-xl font-semibold mb-2">Load Time</h3>
+                    <p class="text-gray-600">Average page load time after performance optimizations</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl fade-in delay-2">
+                    <div class="text-4xl font-bold text-green-500 mb-3">99.9%</div>
+                    <h3 class="text-xl font-semibold mb-2">Uptime</h3>
+                    <p class="text-gray-600">Platform reliability with no major outages since launch</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-gray-50 p-8 rounded-xl fade-in">
+                <h3 class="text-2xl font-semibold mb-6">Client Testimonial</h3>
+                <div class="flex items-start">
+                    <div class="w-16 h-16 rounded-full bg-gray-200 mr-6 overflow-hidden">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <p class="text-gray-600 italic mb-4">"John's work on our e-commerce platform transformed our online business. The new system is faster, more reliable, and has significantly improved our conversion rates. His attention to detail and deep understanding of e-commerce best practices made all the difference."</p>
+                        <div>
+                            <h4 class="font-semibold">Sarah Johnson</h4>
+                            <p class="text-gray-500 text-sm">CEO, Retail Startup</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lessons Learned -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="fade-in">
+            <h2 class="text-3xl font-bold mb-6">Lessons Learned</h2>
+            
+            <div class="bg-white p-6 rounded-xl shadow-sm mb-8">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <i class="fas fa-lightbulb text-yellow-500 mr-3"></i>
+                    Key Takeaways
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-medium mb-2">Performance Matters</h4>
+                        <p class="text-gray-600">Every millisecond counts in e-commerce. Implementing proper caching, code splitting, and image optimization had measurable impact on conversions.</p>
+                    </div>
+                    <div class="border-l-4 border-purple-500 pl-4">
+                        <h4 class="font-medium mb-2">Mobile-First Essential</h4>
+                        <p class="text-gray-600">Over 60% of traffic came from mobile devices. Investing in mobile UX early paid dividends.</p>
+                    </div>
+                    <div class="border-l-4 border-green-500 pl-4">
+                        <h4 class="font-medium mb-2">Inventory Complexity</h4>
+                        <p class="text-gray-600">Managing inventory across multiple warehouses with real-time updates required careful system design.</p>
+                    </div>
+                    <div class="border-l-4 border-red-500 pl-4">
+                        <h4 class="font-medium mb-2">Payment Security</h4>
+                        <p class="text-gray-600">PCI compliance requirements significantly influenced our architecture decisions.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <i class="fas fa-code-branch text-blue-500 mr-3"></i>
+                    Future Improvements
+                </h3>
+                <ul class="list-disc pl-6 space-y-3 text-gray-600">
+                    <li>Implement a headless architecture to support multiple frontends (web, mobile apps, POS)</li>
+                    <li>Add AI-powered product recommendations based on browsing behavior</li>
+                    <li>Expand the analytics dashboard with more advanced reporting features</li>
+                    <li>Integrate with additional payment providers and shipping carriers</li>
+                    <li>Develop a progressive web app (PWA) for improved mobile experience</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <h2 class="text-3xl font-bold mb-4">Want to See More Projects?</h2>
+            <p class="text-xl text-blue-100 mb-8">Check out my other work or get in touch to discuss your project</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="index.html#projects" class="px-8 py-3 bg-white text-blue-600 rounded-lg font-medium hover:bg-gray-100 transition">
+                    View All Projects
+                </a>
+                <a href="index.html#contact" class="px-8 py-3 border border-white rounded-lg font-medium hover:bg-white hover:bg-opacity-10 transition">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold gradient-text">John Doe</a>
+                    <p class="text-gray-400 mt-2">Full Stack Developer</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 John Doe. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Screenshot Modal -->
+    <div id="screenshot-modal" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 opacity-0 invisible transition">
+        <div class="relative max-w-4xl w-full mx-4">
+            <button onclick="closeModal()" class="absolute -top-12 right-0 text-white hover:text-gray-300">
+                <i class="fas fa-times text-3xl"></i>
+            </button>
+            <div class="bg-white rounded-lg overflow-hidden">
+                <img id="modal-image" src="" alt="" class="w-full max-h-screen-80 object-contain">
+                <div class="p-4">
+                    <h3 id="modal-title" class="font-semibold text-lg"></h3>
+                    <p id="modal-description" class="text-gray-600"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Screenshot modal functionality
+        function openModal(screenshotId) {
+            const modal = document.getElementById('screenshot-modal');
+            const modalImg = document.getElementById('modal-image');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDesc = document.getElementById('modal-description');
+            
+            // Get the clicked screenshot data
+            const screenshot = document.querySelector(`.${screenshotId}`);
+            const imgSrc = screenshot.querySelector('img').src;
+            const title = screenshot.querySelector('h3').textContent;
+            const desc = screenshot.querySelector('p').textContent;
+            
+            // Set modal content
+            modalImg.src = imgSrc;
+            modalImg.alt = title;
+            modalTitle.textContent = title;
+            modalDesc.textContent = desc;
+            
+            // Show modal
+            modal.classList.remove('invisible', 'opacity-0');
+            modal.classList.add('opacity-100');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('screenshot-modal');
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0', 'invisible');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside image
+        document.getElementById('screenshot-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            fadeInObserver.observe(element);
+        });
+    </script>
+</body>
+</html>

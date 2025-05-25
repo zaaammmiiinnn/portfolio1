@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Zamin Askari Rizvi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations and effects */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-nav::after {
+            width: 100%;
+        }
+        
+        /* Dark mode transitions */
+        body, .bg-white, .bg-gray-50, .bg-gray-100, .bg-gray-200 {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Filter buttons */
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans dark:bg-gray-900 dark:text-gray-200">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-xl font-bold gradient-text">Z. A. Rizvi</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#home" class="nav-link dark:text-gray-300">Home</a>
+                    <a href="index.html#about" class="nav-link dark:text-gray-300">About</a>
+                    <a href="index.html#skills" class="nav-link dark:text-gray-300">Skills</a>
+                    <a href="projects.html" class="nav-link active-nav dark:text-gray-300">Projects</a>
+                    <a href="index.html#contact" class="nav-link dark:text-gray-300">Contact</a>
+                    <button id="theme-toggle" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+                        <i class="fas fa-moon text-gray-700 dark:hidden"></i>
+                        <i class="fas fa-sun text-yellow-300 hidden dark:block"></i>
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center space-x-4">
+                    <button id="theme-toggle-mobile" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+                        <i class="fas fa-moon text-gray-700 dark:hidden"></i>
+                        <i class="fas fa-sun text-yellow-300 hidden dark:block"></i>
+                    </button>
+                    <button id="menu-btn" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 py-4 px-4 shadow-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html#home" class="nav-link dark:text-gray-300">Home</a>
+                <a href="index.html#about" class="nav-link dark:text-gray-300">About</a>
+                <a href="index.html#skills" class="nav-link dark:text-gray-300">Skills</a>
+                <a href="projects.html" class="nav-link active-nav dark:text-gray-300">Projects</a>
+                <a href="index.html#contact" class="nav-link dark:text-gray-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Header -->
+    <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="text-center mb-12 fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 dark:text-white">My <span class="gradient-text">Projects</span></h1>
+            <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Here's a comprehensive showcase of my work. Each project represents a unique challenge and solution.</p>
+        </div>
+        
+        <!-- Project Filters -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12 fade-in delay-1">
+            <button class="filter-btn px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600" data-filter="all">All</button>
+            <button class="filter-btn px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600" data-filter="frontend">Frontend</button>
+            <button class="filter-btn px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600" data-filter="backend">Backend</button>
+            <button class="filter-btn px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600" data-filter="fullstack">Full Stack</button>
+            <button class="filter-btn px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-600" data-filter="mobile">Mobile</button>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden transition duration-300 fade-in" data-category="fullstack">
+                <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center">
+                    <i class="fas fa-shopping-cart text-white text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-2 dark:text-white">E-Commerce Platform</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">A full-featured online store with payment integration, inventory management, and analytics dashboard.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 text-xs px-3 py-1 rounded-full">React</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-400 text-xs px-3 py-1 rounded-full">Node.js</span>
+                        <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 text-xs px-3 py-1 rounded-full">MongoDB</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="e-commerce.html" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden transition duration-300 fade-in delay-1" data-category="frontend">
+                <div class="h-48 bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center">
+                    <i class="fas fa-chart-line text-white text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-2 dark:text-white">Financial Dashboard</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Interactive dashboard for financial data visualization with real-time updates and customizable reports.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 text-xs px-3 py-1 rounded-full">Vue.js</span>
+                        <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 text-xs px-3 py-1 rounded-full">Firebase</span>
+                        <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400 text-xs px-3 py-1 rounded-full">D3.js</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden transition duration-300 fade-in delay-2" data-category="fullstack">
+                <div class="h-48 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center">
+                    <i class="fas fa-users text-white text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-2 dark:text-white">Collaboration Tool</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">A real-time collaboration platform with chat, video conferencing, and document sharing capabilities.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 text-xs px-3 py-1 rounded-full">React</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-400 text-xs px-3 py-1 rounded-full">Express</span>
+                        <span class="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-400 text-xs px-3 py-1 rounded-full">WebRTC</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden transition duration-300 fade-in" data-category="backend">
+                <div class="h-48 bg-gradient-to-r from-red-400 to-red-600 flex items-center justify-center">
+                    <i class="fas fa-newspaper text-white text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-2 dark:text-white">News Aggregator</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Personalized news feed that aggregates content from multiple sources using machine learning algorithms.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 text-xs px-3 py-1 rounded-full">Next.js</span>
+                        <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 text-xs px-3 py-1 rounded-full">Python</span>
+                        <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400 text-xs px-3 py-1 rounded-full">NLP</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden transition duration-300 fade-in delay-1" data-category="mobile">
+                <div class="h-48 bg-gradient-to-r from-yellow-400 to-yellow-600 flex items-center justify-center">
+                    <i class="fas fa-mobile-alt text-white text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-2 dark:text-white">Fitness App</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Mobile application for tracking workouts, nutrition, and progress with social sharing features.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 text-xs px-3 py-1 rounded-full">React Native</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-400 text-xs px-3 py-1 rounded-full">GraphQL</span>
+                        <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 text-xs px-3 py-1 rounded-full">MongoDB</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition">
+                            <i class="fas fa-external-link-alt"></i> App Store
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden transition duration-300 fade-in delay-2" data-category="fullstack">
+                <div class="h-48 bg-gradient-to-r from-indigo-400 to-indigo-600 flex items-center justify-center">
+                    <i class="fas fa-lock text-white text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-2 dark:text-white">Password Manager</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Secure password storage solution with encryption, auto-fill, and cross-device synchronization.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 text-xs px-3 py-1 rounded-full">Electron</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-400 text-xs px-3 py-1 rounded-full">TypeScript</span>
+                        <span class="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-400 text-xs px-3 py-1 rounded-full">AES-256</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition">
+                            <i class="fas fa-external-link-alt"></i> Download
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden transition duration-300 fade-in" data-category="frontend">
+                <div class="h-48 bg-gradient-to-r from-pink-400 to-pink-600 flex items-center justify-center">
+                    <i class="fas fa-paint-brush text-white text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-2 dark:text-white">Design System</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Comprehensive UI design system with reusable components, documentation, and accessibility guidelines.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 text-xs px-3 py-1 rounded-full">React</span>
+                        <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400 text-xs px-3 py-1 rounded-full">Storybook</span>
+                        <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 text-xs px-3 py-1 rounded-full">Figma</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden transition duration-300 fade-in delay-1" data-category="backend">
+                <div class="h-48 bg-gradient-to-r from-orange-400 to-orange-600 flex items-center justify-center">
+                    <i class="fas fa-server text-white text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-2 dark:text-white">API Gateway</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">High-performance API gateway with rate limiting, authentication, and request transformation.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-400 text-xs px-3 py-1 rounded-full">Node.js</span>
+                        <span class="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-400 text-xs px-3 py-1 rounded-full">Redis</span>
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 text-xs px-3 py-1 rounded-full">Docker</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition">
+                            <i class="fas fa-external-link-alt"></i> Docs
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden transition duration-300 fade-in delay-2" data-category="mobile">
+                <div class="h-48 bg-gradient-to-r from-teal-400 to-teal-600 flex items-center justify-center">
+                    <i class="fas fa-map-marked-alt text-white text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-2 dark:text-white">Travel Companion</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Mobile app for trip planning with itinerary management, local recommendations, and offline maps.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 text-xs px-3 py-1 rounded-full">Flutter</span>
+                        <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 text-xs px-3 py-1 rounded-full">Firebase</span>
+                        <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400 text-xs px-3 py-1 rounded-full">Google Maps</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition">
+                            <i class="fas fa-external-link-alt"></i> App Store
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto bg-white dark:bg-gray-800 rounded-xl">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold mb-4 dark:text-white">Have a project in mind?</h2>
+            <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">Let's discuss how I can help bring your ideas to life with cutting-edge technology and exceptional user experience.</p>
+            <a href="index.html#contact" class="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium hover:opacity-90 transition">
+                Get In Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-800 py-12 px-4 sm:px-6 lg:px-8 dark:bg-gray-900 dark:text-gray-300">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="index.html" class="text-2xl font-bold gradient-text">Z. A. Rizvi</a>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">Full Stack Developer</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://github.com/zaaammmiiinnn" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/zaaammmiiinnn/" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 dark:text-gray-400 mb-4 md:mb-0">© 2025 Zamin Askari Rizvi. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Filter projects
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active filter button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filter = button.dataset.filter;
+                
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Set 'All' as active by default
+        document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+        
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            fadeInObserver.observe(element);
+        });
+        
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        
+        // Check for saved user preference or use system preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        // Toggle theme
+        function toggleTheme() {
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        }
+        
+        // Add event listeners
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+        
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', toggleTheme);
+        }
+    </script>
+</body>
+</html>

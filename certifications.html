@@ -1,1 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamin Askari Rizvi | Certifications</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                            600: '#475569',
+                            500: '#64748b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+      
+      <style>
+        /* Custom CSS for animations and effects */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-nav::after {
+            width: 100%;
+        }
 
+        /* Dark mode transitions */
+        body, .bg-white, .bg-gray-50, .bg-gray-100, .bg-gray-200 {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Computer animation */
+        .computer {
+            position: relative;
+            width: 300px;
+            height: 220px;
+            margin: 0 auto;
+        }
+
+        .monitor {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #334155, #1e293b);
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border: 1px solid #475569;
+        }
+
+        .screen {
+            width: 90%;
+            height: 80%;
+            background: #0f172a;
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .screen-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: monospace;
+        }
+
+        .code-line {
+            width: 90%;
+            height: 15px;
+            background: #334155;
+            margin: 5px 0;
+            border-radius: 2px;
+            animation: typing 1.5s infinite alternate;
+        }
+
+        .code-line:nth-child(1) { width: 60%; animation-delay: 0.1s; }
+        .code-line:nth-child(2) { width: 80%; animation-delay: 0.3s; }
+        .code-line:nth-child(3) { width: 70%; animation-delay: 0.5s; }
+        .code-line:nth-child(4) { width: 50%; animation-delay: 0.7s; }
+        .code-line:nth-child(5) { width: 90%; animation-delay: 0.9s; }
+
+        @keyframes typing {
+            from { width: 0; opacity: 0; }
+            to { width: as specified; opacity: 1; }
+        }
+
+        .stand {
+            width: 80px;
+            height: 40px;
+            background: linear-gradient(135deg, #334155, #1e293b);
+            margin: 0 auto;
+            border-radius: 0 0 5px 5px;
+            position: relative;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            border: 1px solid #475569;
+            border-top: none;
+        }
+
+        .stand:before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 10px;
+            background: linear-gradient(135deg, #334155, #1e293b);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 0 0 5px 5px;
+            border: 1px solid #475569;
+            border-top: none;
+        }
+
+        .keyboard {
+            width: 200px;
+            height: 60px;
+            background: linear-gradient(135deg, #334155, #1e293b);
+            margin: 20px auto 0;
+            border-radius: 5px;
+            position: relative;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            border: 1px solid #475569;
+        }
+
+        .keyboard:before {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 40px;
+            background: #0f172a;
+            top: 10px;
+            left: 10px;
+            border-radius: 3px;
+        }
+
+        .keyboard-key {
+            position: absolute;
+            width: 10px;
+            height: 8px;
+            background: #64748b;
+            border-radius: 1px;
+        }
+
+        /* Generate keyboard keys */
+        .keyboard-key:nth-child(1) { top: 15px; left: 15px; }
+        .keyboard-key:nth-child(2) { top: 15px; left: 30px; }
+        .keyboard-key:nth-child(3) { top: 15px; left: 45px; }
+        .keyboard-key:nth-child(4) { top: 15px; left: 60px; }
+        .keyboard-key:nth-child(5) { top: 15px; left: 75px; }
+        .keyboard-key:nth-child(6) { top: 15px; left: 90px; }
+        .keyboard-key:nth-child(7) { top: 15px; left: 105px; }
+        .keyboard-key:nth-child(8) { top: 15px; left: 120px; }
+        .keyboard-key:nth-child(9) { top: 15px; left: 135px; }
+        .keyboard-key:nth-child(10) { top: 15px; left: 150px; }
+        .keyboard-key:nth-child(11) { top: 25px; left: 20px; }
+        .keyboard-key:nth-child(12) { top: 25px; left: 35px; }
+        .keyboard-key:nth-child(13) { top: 25px; left: 50px; }
+        .keyboard-key:nth-child(14) { top: 25px; left: 65px; }
+        .keyboard-key:nth-child(15) { top: 25px; left: 80px; }
+        .keyboard-key:nth-child(16) { top: 25px; left: 95px; }
+        .keyboard-key:nth-child(17) { top: 25px; left: 110px; }
+        .keyboard-key:nth-child(18) { top: 25px; left: 125px; }
+        .keyboard-key:nth-child(19) { top: 25px; left: 140px; }
+        .keyboard-key:nth-child(20) { top: 35px; left: 30px; width: 20px; }
+        .keyboard-key:nth-child(21) { top: 35px; left: 60px; width: 40px; }
+        .keyboard-key:nth-child(22) { top: 35px; left: 110px; width: 20px; }
+        .keyboard-key:nth-child(23) { top: 35px; left: 140px; width: 20px; }
+
+        /* Blinking cursor */
+        .cursor {
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background: #3b82f6;
+            bottom: 10px;
+            right: 10px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+      
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-nav::after {
+            width: 100%;
+        }
+
+        body, .bg-white, .bg-gray-50, .bg-gray-100, .bg-gray-200 {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans dark:bg-dark-900 dark:text-gray-200">
+    <!-- Navigation (same as index.html) -->
+    <nav class="fixed w-full bg-white shadow-sm z-50 dark:bg-dark-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-xl font-bold gradient-text">Z. A. Rizvi</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#home" class="nav-link dark:text-gray-300">Home</a>
+                    <a href="index.html#about" class="nav-link dark:text-gray-300">About</a>
+                    <a href="index.html#skills" class="nav-link dark:text-gray-300">Skills</a>
+                    <a href="index.html#certifications" class="nav-link active-nav dark:text-gray-300">Certifications</a>
+                    <a href="index.html#projects" class="nav-link dark:text-gray-300">Projects</a>
+                    <a href="index.html#contact" class="nav-link dark:text-gray-300">Contact</a>
+                    <button id="theme-toggle" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:hover:bg-dark-600 transition">
+                        <i class="fas fa-moon text-gray-700 dark:hidden"></i>
+                        <i class="fas fa-sun text-yellow-300 hidden dark:block"></i>
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center space-x-4">
+                    <button id="theme-toggle-mobile" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:hover:bg-dark-600 transition">
+                        <i class="fas fa-moon text-gray-700 dark:hidden"></i>
+                        <i class="fas fa-sun text-yellow-300 hidden dark:block"></i>
+                    </button>
+                    <button id="menu-btn" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-dark-800 py-4 px-4 shadow-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html#home" class="nav-link dark:text-gray-300">Home</a>
+                <a href="index.html#about" class="nav-link dark:text-gray-300">About</a>
+                <a href="index.html#skills" class="nav-link dark:text-gray-300">Skills</a>
+                <a href="index.html#certifications" class="nav-link active-nav dark:text-gray-300">Certifications</a>
+                <a href="index.html#projects" class="nav-link dark:text-gray-300">Projects</a>
+                <a href="index.html#contact" class="nav-link dark:text-gray-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Certifications Section -->
+    <section class="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="text-center mb-12 fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2 dark:text-white">My <span class="gradient-text">Certifications</span></h1>
+            <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+            <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mt-4">Here are all the certifications I've earned to validate my skills and knowledge.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Certification 1 -->
+            <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 fade-in">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-certificate text-blue-500 dark:text-blue-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold dark:text-white">Responsive Web Design</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">freeCodeCamp</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Issued: June 2023</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">Completed 300+ hours of coursework covering HTML5, CSS3, visual design, accessibility, and responsive web design principles.</p>
+                <div class="flex justify-between items-center">
+                    <a href="https://www.freecodecamp.org/certification/fcc4b1c5f5b-4b1c-5f5b-9b1c-5f5b9b1c5f5b/responsive-web-design" target="_blank" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                    </a>
+                    <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 text-xs px-3 py-1 rounded-full">Web Development</span>
+                </div>
+            </div>
+            
+            <!-- Certification 2 -->
+            <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 fade-in delay-1">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fab fa-google text-green-500 dark:text-green-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold dark:text-white">Google Data Analytics</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Google</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Issued: March 2023</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">Professional training covering data cleaning, analysis, visualization, and tools like SQL, Tableau, and R programming.</p>
+                <div class="flex justify-between items-center">
+                    <a href="#" target="_blank" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                    </a>
+                    <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 text-xs px-3 py-1 rounded-full">Data Science</span>
+                </div>
+            </div>
+            
+            <!-- Certification 3 -->
+            <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 fade-in delay-2">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fab fa-aws text-yellow-500 dark:text-yellow-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold dark:text-white">AWS Cloud Practitioner</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Amazon Web Services</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Issued: January 2024</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">Demonstrated foundational knowledge of AWS Cloud services, architecture, pricing, and support models.</p>
+                <div class="flex justify-between items-center">
+                    <a href="#" target="_blank" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                    </a>
+                    <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400 text-xs px-3 py-1 rounded-full">Cloud Computing</span>
+                </div>
+            </div>
+            
+            <!-- Add more certifications here following the same pattern -->
+            <!-- Certification 4 -->
+            <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 fade-in">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fab fa-microsoft text-purple-500 dark:text-purple-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold dark:text-white">Microsoft Certified: Azure Fundamentals</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Microsoft</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Issued: August 2023</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">Demonstrated foundational knowledge of cloud concepts and Microsoft Azure services.</p>
+                <div class="flex justify-between items-center">
+                    <a href="#" target="_blank" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                    </a>
+                    <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-400 text-xs px-3 py-1 rounded-full">Cloud Computing</span>
+                </div>
+            </div>
+            
+            <!-- Certification 5 -->
+            <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 fade-in delay-1">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fab fa-js text-red-500 dark:text-red-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold dark:text-white">JavaScript Algorithms and Data Structures</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">freeCodeCamp</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Issued: May 2023</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">Mastered JavaScript fundamentals including variables, arrays, objects, loops, and functions.</p>
+                <div class="flex justify-between items-center">
+                    <a href="#" target="_blank" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                    </a>
+                    <span class="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-400 text-xs px-3 py-1 rounded-full">Programming</span>
+                </div>
+            </div>
+            
+            <!-- Certification 6 -->
+            <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 fade-in delay-2">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fab fa-react text-indigo-500 dark:text-indigo-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold dark:text-white">Front End Development Libraries</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">freeCodeCamp</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Issued: July 2023</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">Learned to style with Bootstrap, add logic with jQuery, and build single-page apps with React and Redux.</p>
+                <div class="flex justify-between items-center">
+                    <a href="#" target="_blank" class="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                    </a>
+                    <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-400 text-xs px-3 py-1 rounded-full">Frontend</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="index.html#certifications" class="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium hover:opacity-90 transition">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Portfolio
+            </a>
+        </div>
+    </section>
+    
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="index.html" class="text-2xl font-bold gradient-text">Zamin Askari Rizvi</a>
+                    <p class="text-gray-400 mt-2">Full Stack Developer</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://github.com/zaaammmiiinnn" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/zamin-askari-rizvi/" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="https://x.com/zaaammmiiinnn1" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/zaaammmiiinnn/" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Zamin Askari Rizvi. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition">Home</a>
+                    <a href="index.html#contact" class="text-gray-400 hover:text-white transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Copy the same JavaScript from your index.html -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active-nav');
+                });
+                this.classList.add('active-nav');
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Highlight active section in navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active-nav');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active-nav');
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            fadeInObserver.observe(element);
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        
+        // Check for saved user preference or use system preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        // Toggle theme
+        function toggleTheme() {
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        }
+        
+        // Add event listeners
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+        
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', toggleTheme);
+        }
+    </script>
+</body>
+</html>
